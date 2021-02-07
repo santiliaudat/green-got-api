@@ -10,7 +10,8 @@
   "dependencies": {
     "next": "latest",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "yup": "^0.32.8"
   },
   "license": "MIT",
   "devDependencies": {

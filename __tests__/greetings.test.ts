@@ -10,7 +10,7 @@ describe("/api/greetings", () => {
       },
     });
 
-    handleGreetings(req, res);
+    await handleGreetings(req, res);
 
     expect(res._getStatusCode()).toBe(200);
     expect(JSON.parse(res._getData())).toEqual(
@@ -24,7 +24,7 @@ describe("/api/greetings", () => {
     const { req, res } = createMocks({
       method: "GET"
     });
-    handleGreetings(req, res);
+    await handleGreetings(req, res);
     expect(res._getStatusCode()).toBe(400);
   });
 
@@ -32,7 +32,7 @@ describe("/api/greetings", () => {
     const { req, res } = createMocks({
       method: "POST"
     });
-    handleGreetings(req, res);
+    await handleGreetings(req, res);
     expect(res._getStatusCode()).toBe(405);
   });
 });

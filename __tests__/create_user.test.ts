@@ -8,7 +8,7 @@ describe("/api/create_user", () => {
       body: { firstName: "Santi", lastName: "Liaudat" },
     });
 
-    handleUser(req, res);
+    await handleUser(req, res);
 
     expect(res._getStatusCode()).toBe(200);
     expect(JSON.parse(res._getData())).toEqual(
@@ -22,7 +22,16 @@ describe("/api/create_user", () => {
     const { req, res } = createMocks({
       method: "POST",
     });
-    handleUser(req, res);
+    await handleUser(req, res);
+    expect(res._getStatusCode()).toBe(400);
+  });
+
+  it("returns an error if params is invalid datatype ", async () => {
+    const { req, res } = createMocks({
+      method: "POST",
+      body: { firstName: 123123, lastName: "Liaudat" },
+    });
+    await handleUser(req, res);
     expect(res._getStatusCode()).toBe(400);
   });
 
@@ -30,7 +39,7 @@ describe("/api/create_user", () => {
     const { req, res } = createMocks({
       method: "GET",
     });
-    handleUser(req, res);
+    await handleUser(req, res);
     expect(res._getStatusCode()).toBe(405);
   });
 });
