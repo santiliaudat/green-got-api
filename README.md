@@ -5,7 +5,7 @@
 | Method | URL                          | Params              | Notas             |
 | ------ | ---------------------------- | ------------------- | ----------------- |
 | GET    | /api/greetings/${first_name} | first_name          | Return a greeting |
-| POST   | /api/create_user             | firstName, lastName | Create user       |
+| POST   | /api/create_user             | firstName, lastName | Create user and return fullname       |
 
 ### Getting Start Development
 
